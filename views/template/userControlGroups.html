@@ -1,0 +1,93 @@
+<body>
+        <h1>Sum Club</h1>
+        <br/>
+        <p id="welcomeBanner"></p>
+		<br/>
+        <button id="loginButton" type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal" data-whatever="Login">Login</button>
+        <button id="createUserButton" type="button" class="btn btn-success" data-toggle="modal" data-target="#createModal" data-whatever="Create">Create</button>
+
+        <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="loginModalLabel">Login required</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                <div class="form-group">
+                        <label for="authGroup" class="col-form-label">Group:</label> 
+                        <select name="authGroup" id="authGroup">
+                        </select>
+                </div>
+                <div class="form-group">
+                    <label for="login" class="col-form-label">Username:</label>
+                    <input type="text" class="form-control" id="authLogin">
+                </div>
+                <div class="form-group">
+                    <label for="password" class="col-form-label">Password:</label>
+                    <input type="password" class="form-control" id="authPassword">
+                </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="loginDefaultButton" class="btn btn-info">Groups</button>
+                <button type="submit" id="authenticate" class="btn btn-primary">Authenticate</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="createModalLabel">User Info required</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                        <div class="form-group">
+                                <label for="Group" class="col-form-label">Club Name:</label>
+                                <input type="text" class="form-control" id="createGroup">
+                        </div>
+                        <div class="form-group">
+                                <label for="userRole" class="col-form-label">Role:</label> 
+                                <select name="userRole" id="createRole">
+                                    <option value="ADMIN">Admin</option>
+                                    <option value="STANDARD">Member</option>
+                                </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="login" class="col-form-label">Username:</label>
+                            <input type="text" class="form-control" id="createLogin">
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="col-form-label">Password:</label>
+                            <input type="password" class="form-control" id="createPassword">
+                        </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" id="create" class="btn btn-primary">Create</button>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <br />
+            <a href="LedgerGroups.html"> Stuff </a>
+            <br />
+            <a href="CryptoLedger.html"> More Stuff </a>
+                
+        <script src="scripts/jquery-3.2.1.js"> </script>
+        <script src="jquery-ui/jquery-ui.js"> </script>
+		<script src="bootstrap/js/bootstrap.min.js"> </script>
+		<script src="scripts/LoginUserGroup.js"> </script>
+	</body>

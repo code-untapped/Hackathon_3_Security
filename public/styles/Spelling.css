@@ -1,0 +1,16 @@
+body {
+	font-family: arial;
+	background-color: rgb(134,130,191);
+	border: 1px solid rgb(12,12,12);
+	padding: 10px;}
+h1, h2 {
+	color: rgb(255,255,255);
+	padding: 5px;}
+	
+#spellWord:hover {
+	background-color: rgb(181,178,170);
+}
+
+#spellWord:focus {
+	background-color: rgb(262,165,242);
+}

@@ -1,0 +1,84 @@
+body {
+	font-family: arial;
+	background-color: rgb(134,130,191);
+	padding: 10px;}
+h1, h2 {
+	color: rgb(255,255,255);
+	padding: 5px;}
+
+th {
+	min-width: 50px;
+	min-height: 30px;
+	text-align: left;
+	padding: 5px;
+	font-weight: bold;
+	background-color: rgb(262,165,242);
+	border-width: meduim;
+	border-style: solid;
+}
+
+td {
+	min-width: 50px;
+	min-height: 30px;
+	text-align: left;
+	padding: 5px;
+	background-color: rgb(181,178,170);
+	border-width: thin;
+	border-style: inset;
+}
+	
+td.FirstName {
+	background-color: rgb(181,178,170);
+}
+
+td.Date {
+	background-color: rgb(181,178,170);
+}
+
+td.height {
+	background-color: rgb(124,212,61);
+}
+
+td.weight {
+	background-color: rgb(124,212,61);
+}
+
+td.type {
+	background-color: rgb(124,212,61);
+}
+
+td.name {
+	background-color: rgb(124,212,61);
+}
+
+td.amount {
+	background-color: rgb(124,212,61);
+}
+
+td.complete {
+	background-color: rgb(141, 152, 161);
+}
+
+.column1, .column2 {
+	width: 50%;
+	float: left;
+	margin: 1%;
+}
+
+.respond {
+	width: 80%;
+	height: 15em;
+	float: left;
+	margin: 2%;
+}
+
+.send {
+	width: 40%;
+	height: 4em;
+	float: left;
+	margin: 2%;
+}
+
+submit {
+	margin: 2%;
+}

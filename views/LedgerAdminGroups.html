@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Requied meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial scale=1, shrink-to-fit=no">
+        
+		<title>
+		    Club Ledger
+        </title>    
+        <link href="bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
+        <link href="jquery.ui.chatbox-master/jquery.ui.chatbox.css" type="text/css" rel="stylesheet" />
+        <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css " type="text/css" rel="stylesheet" />
+	</head>
+	<body>
+        <h1>club Ledger</h1>
+        <br/>
+        <h5 id="welcomeBanner">Welcome banner</h5>
+        <br/>
+        <ul class="nav nav-pills">
+            <li class="nav-item">
+                <a class="nav-link" href="userLedgerAggregationGroups.html">Summary</a>
+            </li>
+            <li>
+                <a class="nav-link" href="DocumentGroups.html">Group Store</a>
+            </li>
+            <li>
+                <button id="createButton" type="button" class="btn btn-success" data-toggle="modal" data-target="#createLedgerRecModal" data-whatever="Create">Create</button>
+            </li>
+            <li>
+                <button id="chatButton" type="button" class="btn btn-info">Chat</button>
+            </li>
+            <li>
+                <button id="chatHistory" type="button" class="btn btn-warning">History</button>
+            </li>
+        </ul>        
+
+        <div class="modal fade" id="createLedgerRecModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="createModalLabel">Ledger input required</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                    <div class="form-group">
+                            <label for="ledgerDate" class="col-form-label">Date:</label>
+                            <input type="date" class="form-control" id="ledgerDate">
+                    </div>
+                    <div class="form-group">
+                            <label for="ledgerType" class="col-form-label">Type:</label> 
+                            <select name="ledgerType" id="ledgerType">
+                                <option value="deposit">Deposit</option>
+                                <option value="withdrawal">Withdrawal</option>
+                            </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="ledgerName" class="col-form-label">Name:</label> 
+                        <select name="login" id="ledgerName">
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="ledgerDescription" class="col-form-label">Description:</label>
+                        <input type="text" class="form-control" id="ledgerDescription">
+                    </div>
+                    <div class="form-group">
+                        <label for="ledgerAmount" class="col-form-label">Amount:</label>
+                        <input type="text" class="form-control" id="ledgerAmount">
+                    </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" id="create" class="btn btn-primary">Create</button>
+                </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="modal fade" id="deleteLedgerRecModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="deleteModalLabel">Ledger input Defaulted</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                        <div class="form-group">
+                                <label for="deleteLedgerDate" class="col-form-label">Date:</label>
+                                <input type="text" class="form-control" id="deleteLedgerDate" readonly>
+                        </div>
+                        <div class="form-group">
+                                <label for="deleteLedgerType" class="col-form-label">Type:</label> 
+                                <input type="text" class="form-control" id="deleteLedgerType" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="deleteLedgerName" class="col-form-label">Name:</label> 
+                            <input type="text" class="form-control" id="deleteLedgerName" readonly>
+                        </div>
+                        <div class="form-group">
+                                <label for="deleteLedgerDescription" class="col-form-label">Description:</label> 
+                                <input type="text" class="form-control" id="deleteLedgerDescription" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="deleteLedgerAmount" class="col-form-label">Amount:</label>
+                            <input type="text" class="form-control" id="deleteLedgerAmount" readonly>
+                        </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" id="delete" class="btn btn-primary">Delete</button>
+                    </div>
+                    </div>
+                </div>
+            </div>
+
+        
+
+        <div class="column1">
+            <br />
+            <table id="personRecords" class="table table-striped table-hover table-sm">
+                <thead>
+                    <tr><th>Date</th><th>Type</th><th>Name</th><th>Description</th><th>Amount</th></tr>
+                </thead>
+                <tfoot>
+                    <tr><th>Date</th><th>Type</th><th>Name</th><th>Description</th><th>Amount</th></tr>
+                </tfoot>
+            </table>
+            <br />
+        </div>
+        <div id="column2">
+            <br/>
+			<div id="chat_div"></div>
+        </div>
+        <!-- Jquery first, then Popper.js, then Bootstrap JS -->
+    <!--    <script src="scripts/jquery-3.2.1.js"> </script>   -->
+        <script src="https://code.jquery.com/jquery-3.3.1.js "> </script>
+		<script src="jquery-ui/jquery-ui.js"> </script>
+        <script src="bootstrap/js/bootstrap.min.js"> </script>
+        <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"> </script>
+        <script src="jquery.ui.chatbox-master/jquery.ui.chatbox.js"> </script>
+		<script src="scripts/LedgerGroups.js"> </script>
+        <script src="scripts/LedgerAdminGroups.js"> </script>
+        <script src="scripts/chatUIGroups.js"> </script>
+	</body>
+</html>

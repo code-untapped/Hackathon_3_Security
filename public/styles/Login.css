@@ -1,0 +1,47 @@
+body {
+	font-family: arial;
+	background-color: rgb(0,0,0);
+	border: 1px solid rgb(12,12,12);
+	padding: 10px;}
+	
+h1, h2 {
+	color: rgb(255,255,255);
+	padding: 5px;}
+
+form {
+	color: rgb(255,255,255);
+}
+	
+th {
+	min-width: 50px;
+	min-height: 30px;
+	text-align: left;
+	padding: 5px;
+	font-weight: bold;
+	background-color: rgb(262,165,242);
+	border-width: meduim;
+	border-style: solid;
+}
+
+td {
+	min-width: 50px;
+	min-height: 30px;
+	text-align: left;
+	padding: 5px;
+	background-color: rgb(181,178,170);
+	border-width: thin;
+	border-style: inset;
+}
+
+	
+td.FirstName {
+	background-color: rgb(181,178,170);
+}
+
+td.height {
+	background-color: rgb(124,212,61);
+}
+
+td.weight {
+	background-color: rgb(124,212,61);
+}

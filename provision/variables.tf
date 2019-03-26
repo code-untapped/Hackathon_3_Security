@@ -11,7 +11,7 @@ variable "subnetwork-region" {
 }
 
 variable "network" {
-  default = "ovirt-network"
+  default = "default"
 }
 
 variable "vm_type" {

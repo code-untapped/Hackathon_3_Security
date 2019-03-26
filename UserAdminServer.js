@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 const app = express();
-const User = require('./users');
+const User = require('./usersArgon');
 
 app.set('port', process.env.PORT || 9010);
 

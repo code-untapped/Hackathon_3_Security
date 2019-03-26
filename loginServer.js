@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
-const User = require('./users');
+const User = require('./usersArgon');
 const user = new User();
 
 
@@ -16,7 +16,6 @@ app.get('/authenticate', (req, res) => {
 
     user.authenticate(login, password).then(function(docs) {
         console.log(docs);
-        console.log('Jason is here')
         user.successHTMLResponse('Login ' + login + ' authenticated', res, docs);
     }, function(error) {
         User.failResponse(error, res);

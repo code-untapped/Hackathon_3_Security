@@ -21,7 +21,7 @@ app.get('/authenticate', (req, res) => {
         User.failResponse(error, res);
     })
     .catch((error) => {
-        User.failResponse(error, res)
+        User.failResponse(error, res);
     });
     
 });

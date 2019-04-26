@@ -40,6 +40,28 @@ class User {
         res.end(JSON.stringify(response));
     }
 
+    static formatDateTime(date) {
+        var d = new Date(date),
+            year = d.getFullYear(),
+            month = '' + (d.getMonth() + 1),
+            day  = '' + d.getDate(),
+            hour = '' + d.getHours(),
+            min  = '' + d.getMinutes(),
+            sec  = '' + d.getSeconds();
+            
+        if (month.length < 2) month = '0' + month;
+        if (day.length < 2) day = '0' + day;
+        if (hour.length < 2) hour = '0' + hour;
+        if (min.length < 2) min = '0' + min;
+        if (sec.length < 2) sec = '0' + sec;
+
+        let dat = [year, month, day].join('-');
+        let time = [ hour, min, sec ].join(':');
+        let dateTime = dat + ' ' + time
+    
+        return dateTime;
+    }
+
     successHTMLResponse(err, res, loginInfo) {
         const response = { success : 'OK',
                  message : err };
@@ -77,7 +99,7 @@ class User {
                 resolve(hash);
             }, (err) => {
                 console.log(err)
-                //reject(err)
+                reject(err)
             })
         })
     }
@@ -127,7 +149,7 @@ class User {
             that.getUserByName(login).then( function(gubnResponse) {
                 msg = '\n response length: <' + gubnResponse.length + '>';
                 //console.log(msg);
-                //console.log(gubnResponse);
+                console.log(gubnResponse);
                 if ( gubnResponse.length > 0 ) {
                     that.isPasswordCorrect( gubnResponse, password ).then( function(ipcResponse ) {
                         //console.log(ipcResponse);

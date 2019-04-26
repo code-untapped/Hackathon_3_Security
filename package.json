@@ -3,6 +3,7 @@
     "argon2-ffi": "^1.1.2",
     "assert": "^1.4.1",
     "crypto": "^1.0.1",
+    "crypto-js": "^3.1.9-1",
     "express": "^4.16.4",
     "http-proxy": "^1.17.0",
     "mongodb": "^3.2.2"

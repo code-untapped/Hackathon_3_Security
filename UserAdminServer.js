@@ -23,7 +23,6 @@ app.post('/createUser', (req, res) => {
     console.log(msg);
     const user = new User();
 
-
     user.getUserByName(login).then( (gubnResponse) => {
 
         console.log(gubnResponse);

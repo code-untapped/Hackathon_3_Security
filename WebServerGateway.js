@@ -11,6 +11,9 @@ const app = express();
 
 const loginServiceProxy = (req, res) => proxy.web(req, res, {target: 'http://localhost:8880'});
 const userAdminServiceProxy = (req, res) => proxy.web(req, res, {target: 'http://localhost:9010'});
+const encryptServiceProxy = (req, res) => proxy.web(req, res, {target: 'http://localhost:9020'});
+const decryptServiceProxy = (req, res) => proxy.web(req, res, {target: 'http://localhost:9030'});
+
 
 app.set('port', process.env.PORT || 3000);
 // app.set('httpsPort', process.env.HTTPS_PORT || 3000); 
@@ -49,6 +52,14 @@ app.get('/authenticate', (req, res) => {
 
 app.post('/createUser', (req, res) => {
     userAdminServiceProxy(req, res);
+});
+
+app.post('/enCryptData', (req, res) => {
+    encryptServiceProxy(req, res);
+});
+
+app.get('/decryptData', (req, res) => {
+    decryptServiceProxy(req, res);
 });
 
 

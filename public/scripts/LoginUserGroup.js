@@ -13,9 +13,8 @@ $(function() {
 	
 	//window.alert(msg);
 	if ( window.localStorage ) {
-		$('#welcomeBanner').html('\n Welcome ' + localStorage.login  );
+		$('#welcomeBanner').html('\n Welcome ' + localStorage.login + ' to the Safe Store App' );
 	}
-	
 	
 	$loginForm.append('<div id="Message"></div>');
 	
@@ -52,12 +51,12 @@ $(function() {
 		}
 		login = $('#login').val();
 		data =  '?login='     + $('#authLogin').val();
-        data += '&password='  + $('#authPassword').val();
+		data += '&password='  + $('#authPassword').val();
 		lurl = 'http://localhost:3000/authenticate';
 		lurl += data;
 		httpRequestType = "GET";
 		msg = "url: " + lurl + " httpRequestType: " + httpRequestType;
-		window.alert(msg);
+		//window.alert(msg);
 		successMsg = "<br/><p>Login Successful</p>";
 		failMsg = "<br/><p>User not authenticated</p>";
 		// sendCORSRequest(httpRequestType, lurl, successMsg, failMsg);
@@ -66,19 +65,29 @@ $(function() {
     
     $('#create').on('click', function(e) {
 		e.preventDefault();
-		login = $('#login').val();
-		data =  '?login='     + $('#createLogin').val();
-        data += '&password='  + $('#createPassword').val();
-        data += '&role='      + $('#createRole').val();
-		lurl = 'http://localhost:3000/createUser';
-		lurl += data;
-		httpRequestType = "POST";
-		msg = "url: " + lurl + " httpRequestType: " + httpRequestType;
-		window.alert(msg);
-        successMsg = "<br/><p>User created</p>";
-		failMsg = "<br/><p>User not created</p>";
-		// sendCORSRequest(httpRequestType, lurl, successMsg, failMsg);
-		sendRequestNow(httpRequestType, lurl, successMsg, failMsg)
+		var firstPassword = $('#createPassword').val();
+		var secondPassword = $('#comparePassword').val();
+
+		//alert(firstPassword + ' ' + secondPassword);
+
+		if (firstPassword == secondPassword) {
+			login = $('#login').val();
+			data =  '?login='     + $('#createLogin').val();
+			data += '&password='  + $('#createPassword').val();
+			data += '&role='      + $('#createRole').val();
+			lurl = 'http://localhost:3000/createUser';
+			lurl += data;
+			httpRequestType = "POST";
+			msg = "url: " + lurl + " httpRequestType: " + httpRequestType;
+			//window.alert(msg);
+			successMsg = "<br/><p>User created</p>";
+			failMsg = "<br/><p>User not created</p>";
+			// sendCORSRequest(httpRequestType, lurl, successMsg, failMsg);
+			sendRequestNow(httpRequestType, lurl, successMsg, failMsg)
+		} else {
+			alert('Passwords do not match');
+		}
+		
     });
     
 });

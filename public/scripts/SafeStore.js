@@ -72,7 +72,7 @@ $newItemButton.on('click', function(e) {
     purl += '?data=' + $('#inputData').val();
     purl += '&login='  + localStorage.login;
     purl += "&version=" + version_no;
-    window.alert(purl);
+    //window.alert(purl);
     $.ajax({
         type: "POST",
         datatype: "JSON",

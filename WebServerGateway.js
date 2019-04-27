@@ -13,6 +13,7 @@ const loginServiceProxy = (req, res) => proxy.web(req, res, {target: 'http://loc
 const userAdminServiceProxy = (req, res) => proxy.web(req, res, {target: 'http://localhost:9010'});
 const encryptServiceProxy = (req, res) => proxy.web(req, res, {target: 'http://localhost:9020'});
 const decryptServiceProxy = (req, res) => proxy.web(req, res, {target: 'http://localhost:9030'});
+const companyDataServiceProxy = (req, res) => proxy.web(req, res, {target: 'http://localhost:9040'});
 
 
 app.set('port', process.env.PORT || 3000);
@@ -61,6 +62,11 @@ app.post('/enCryptData', (req, res) => {
 app.get('/decryptData', (req, res) => {
     decryptServiceProxy(req, res);
 });
+
+app.get('/crunchdata', (req, res) => {
+    companyDataServiceProxy(req, res);
+});
+
 
 
 const httpServer = http.createServer(app);

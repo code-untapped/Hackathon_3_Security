@@ -10,7 +10,7 @@
         <link href="styles/LoginGroups.css" type="text/css" rel="stylesheet" />
 	</head>
 	<body>
-        <h1>Hackathon 3 Security</h1>
+        <h1>Secure Diversity</h1>
         <br/>
         <p id="welcomeBanner"></p>
 		<br/>
@@ -51,7 +51,7 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="createModalLabel">User Info required</h5>
+                        <h5 class="modal-title" id="createModalLabel">Please enter your info</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                         </button>
@@ -61,17 +61,27 @@
                             <div class="form-group">
                                     <label for="userRole" class="col-form-label">Role:</label> 
                                     <select name="userRole" id="createRole">
-                                        <option value="COACH">Coach</option>
-                                        <option value="MEMBER">Member</option>
+                                        <option value="SUPERUSER">Superuser</option>
+                                        <option value="ADMIN">Admin</option>
+                                         <option value="MEMBER">Member</option>
+                                          <option value="ANALYSIT">Analysit</option>
                                     </select>
                             </div>
                             <div class="form-group">
                                 <label for="login" class="col-form-label">Username:</label>
-                                <input type="text" class="form-control" id="createLogin">
+                                <input type="text" class="form-control" id="createLogin" pattern='^[A-Za-z0-9_-]{3,50}$' required>
+                            </div>
+                              <div class="form-group">
+                                <label for="Email" class="col-form-label">Email:</label>
+                                <input type="email" class="form-control" id="createEmail" required>
                             </div>
                             <div class="form-group">
-                                <label for="password" class="col-form-label">Password:</label>
-                                <input type="password" class="form-control" id="createPassword">
+                                <label for="password" class="col-form-label">Password (your password must contain at least 1 uppercase character, a number and be 6 characters long):</label>
+                                <input type="password" class="form-control" id="createPassword"  pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$" required>
+                            </div>
+                             <div class="form-group">
+                                <label for="password" class="col-form-label">Confirm Password:</label>
+                                <input type="password" class="form-control" id="confimPassword" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$" required>
                             </div>
                         </form>
                     </div>
@@ -82,10 +92,11 @@
                     </div>
                 </div>
             </div>
-                
+                 <p>created by Green Lion<p>
         <script src="scripts/jquery-3.3.1.js"> </script>
         <script src="jquery-ui/jquery-ui.js"> </script>
 		<script src="bootstrap/js/bootstrap.min.js"> </script>
-		<script src="scripts/LoginUserGroup.js"> </script>
+        <script src="scripts/LoginUserGroup.js"> </script>
+        <script src="scripts/dom.js"></script>
 	</body>
 </html>

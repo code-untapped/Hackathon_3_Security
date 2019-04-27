@@ -93,7 +93,20 @@ $(function() {
         successMsg = "User created";
 		failMsg = "User not created";
 
-		window.alert(successMsg);
+		if ($('#Login').val() == '' &&  $('#createPassword').val() == '') {
+			alert("Please enter your log in details!");
+		} else {
+
+			if ($('#Login').val() == '') {
+				alert("Please enter your username!User not created");
+			}
+
+			if ($('#createPassword').val() == '') {
+				alert("Please enter your password! User not created");
+			}
+		}
+
+		// window.alert(successMsg);
 		// sendCORSRequest(httpRequestType, lurl, successMsg, failMsg);
 		sendRequestNow(httpRequestType, lurl)
     });

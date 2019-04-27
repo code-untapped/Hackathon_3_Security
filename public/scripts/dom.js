@@ -4,11 +4,11 @@ const submit = document.querySelector('#create');
 
 const checkPassword = (password1,password2) => {
     if (password1 === password2){
-        console.log('Match')
-        return 'Match';
+       
+        return alert('Match');
     }
     else {
-        return 'not match';
+        return alert( 'Your passwords do not match');
     }
 
 }
@@ -17,4 +17,4 @@ function match () {
 
 }
 
-submit.addEventListener('click', alert(checkPassword()))
+submit.addEventListener('click', checkPassword)

@@ -57,9 +57,10 @@ $(function() {
 		lurl += data;
 		httpRequestType = "GET";
 		msg = "url: " + lurl + " httpRequestType: " + httpRequestType;
-		window.alert(msg);
+		
 		successMsg = "<br/><p>Login Successful</p>";
 		failMsg = "<br/><p>User not authenticated</p>";
+		window.alert(successMsg);
 		// sendCORSRequest(httpRequestType, lurl, successMsg, failMsg);
 		sendRequestNow(httpRequestType, lurl, successMsg, failMsg)
     });
@@ -74,11 +75,13 @@ $(function() {
 		lurl += data;
 		httpRequestType = "POST";
 		msg = "url: " + lurl + " httpRequestType: " + httpRequestType;
-		window.alert(msg);
-        successMsg = "<br/><p>User created</p>";
-		failMsg = "<br/><p>User not created</p>";
+		
+        successMsg = "User created";
+		failMsg = "User not created";
+
+		window.alert(successMsg);
 		// sendCORSRequest(httpRequestType, lurl, successMsg, failMsg);
-		sendRequestNow(httpRequestType, lurl, successMsg, failMsg)
+		sendRequestNow(httpRequestType, lurl)
     });
     
 });

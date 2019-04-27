@@ -14,15 +14,21 @@ app.get('/authenticate', (req, res) => {
     const login = req.query.login;
     const password = req.query.password;
 
-    user.authenticate(login, password).then(function(docs) {
+    if (login === '' || password === '') {
+
+            User.failResponse('Login parameters invalid', res);
+
+    } else {
+        user.authenticate(login, password).then(function(docs) {
         console.log(docs);
         user.successHTMLResponse('Login ' + login + ' authenticated', res, docs);
-    }, function(error) {
-        User.failResponse(error, res);
-    })
-    .catch((error) => {
-        User.failResponse(error, res);
-    });
+        }, function(error) {
+            User.failResponse(error, res);
+        })
+        .catch((error) => {
+            User.failResponse(error, res);
+        });
+    }
     
 });
 

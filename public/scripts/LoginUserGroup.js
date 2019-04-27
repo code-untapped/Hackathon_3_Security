@@ -58,11 +58,11 @@ $(function() {
 		httpRequestType = "GET";
 		msg = "url: " + lurl + " httpRequestType: " + httpRequestType;
 		
-		successMsg = "<br/><p>Login Successful</p>";
-		failMsg = "<br/><p>User not authenticated</p>";
+		successMsg = "Login Successful";
+		failMsg = "User not authenticated";
 		window.alert(successMsg);
 		// sendCORSRequest(httpRequestType, lurl, successMsg, failMsg);
-		sendRequestNow(httpRequestType, lurl, successMsg, failMsg)
+		sendRequestNow(httpRequestType, lurl)
     });
     
     $('#create').on('click', function(e) {

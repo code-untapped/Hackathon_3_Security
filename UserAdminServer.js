@@ -20,6 +20,10 @@ app.post('/createUser', (req, res) => {
     msg = '\n Create User request received at: ' + TimeNow + '\n'; 
     msg += 'User: '  + login +'\n';
     msg += 'Role: '  + role +'\n';
+
+    if (login === '' || password === ''){
+        User.failResponse('Invalid Login details', res);  
+    } else {
     console.log(msg);
     const user = new User();
 
@@ -44,7 +48,7 @@ app.post('/createUser', (req, res) => {
     }, (error) => {
         User.failResponse(error, res)    
     });
-    
+}
 });
 
 app.listen(app.get('port'), () => {

@@ -72,7 +72,7 @@ $newItemButton.on('click', function(e) {
     purl += '?data=' + $('#inputData').val();
     purl += '&login='  + localStorage.login;
     purl += "&version=" + version_no;
-    window.alert(purl);
+    //window.alert(purl);
     $.ajax({
         type: "POST",
         datatype: "JSON",
@@ -91,3 +91,31 @@ $newItemButton.on('click', function(e) {
                 }
     });
 });
+
+
+omg = () => {
+	$.ajax({
+		url: 'http://localhost:3000/crunchdata',
+		data: {
+		},
+		timeout: 2000,
+		success: function(data) {
+			data = JSON.stringify(data)
+			console.log(data)
+		// var $title = $('<h1>').text(data.talks[0].talk_title);
+		// var $description = $('<p>').text(data.talks[0].talk_description);
+		// $('#info')
+		// .append($title)
+		// .append($description);
+		$('#mockDataRecords').html('<p>yaya</p>');
+		//console.log(data)
+		},
+		error: function(err) {
+			console.log(err)
+		$('#mockDataRecords').html('<p>An error has occurred</p>');
+		},
+		type: 'GET'
+	});
+}
+
+omg();

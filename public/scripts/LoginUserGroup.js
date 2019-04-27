@@ -6,19 +6,19 @@ $(function() {
 
 	var $loginForm;
 	var lurl, data, msg, httpRequestType, successMsg, failMsg;
-	
+
 	$loginForm = $('body');
 	data = '';
-	msg  = "I woz here";
-	
+
+
 	//window.alert(msg);
 	if ( window.localStorage ) {
 		$('#welcomeBanner').html('\n Welcome ' + localStorage.login  );
 	}
-	
-	
+
+
 	$loginForm.append('<div id="Message"></div>');
-	
+
 	function sendRequestNow(httpRequestType, lurl, successMsg, failMsg) {
 		var TimeNow = new Date();
 		var version_no = TimeNow;
@@ -35,7 +35,7 @@ $(function() {
 			error: function(data) {
 				/*
 						$.each(data, function(index, element) {
-							failMsg += '<p>' + element.message + '</p>';	
+							failMsg += '<p>' + element.message + '</p>';
 						});
 				*/
 						//window.alert(failMsg);
@@ -46,7 +46,10 @@ $(function() {
 
 	$('#authenticate').on('click', function(e) {
 		e.preventDefault();
+
 		// set local storage
+
+
 		if ( window.localStorage ) {
             localStorage.login = $('#authLogin').val();
 		}
@@ -57,14 +60,26 @@ $(function() {
 		lurl += data;
 		httpRequestType = "GET";
 		msg = "url: " + lurl + " httpRequestType: " + httpRequestType;
-		
-		successMsg = "<br/><p>Login Successful</p>";
-		failMsg = "<br/><p>User not authenticated</p>";
-		window.alert(successMsg);
+
+//
+		if ($('#authLogin').val() == '' &&  $('#authPassword').val() == '') {
+			alert("Please enter your log in details!");
+		} else {
+
+			if ($('#authLogin').val() == '') {
+				alert("Please enter your username!");
+			}
+
+			if ($('#authPassword').val() == '') {
+				alert("Please enter your password!");
+			}
+		}
+
+
 		// sendCORSRequest(httpRequestType, lurl, successMsg, failMsg);
 		sendRequestNow(httpRequestType, lurl, successMsg, failMsg)
     });
-    
+
     $('#create').on('click', function(e) {
 		e.preventDefault();
 		login = $('#login').val();
@@ -75,7 +90,7 @@ $(function() {
 		lurl += data;
 		httpRequestType = "POST";
 		msg = "url: " + lurl + " httpRequestType: " + httpRequestType;
-		
+
         successMsg = "User created";
 		failMsg = "User not created";
 
@@ -83,5 +98,5 @@ $(function() {
 		// sendCORSRequest(httpRequestType, lurl, successMsg, failMsg);
 		sendRequestNow(httpRequestType, lurl)
     });
-    
+
 });

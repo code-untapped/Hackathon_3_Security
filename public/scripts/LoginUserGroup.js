@@ -75,9 +75,8 @@ $(function() {
 			}
 		}
 
-
 		// sendCORSRequest(httpRequestType, lurl, successMsg, failMsg);
-		sendRequestNow(httpRequestType, lurl, successMsg, failMsg)
+		sendRequestNow(httpRequestType, lurl)
     });
 
     $('#create').on('click', function(e) {
